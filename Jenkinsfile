@@ -26,11 +26,7 @@ node {
         //currentBuild.displayName = "#${currentBuild.number}-${env.git_commit_id_short}"
     }
 
-    stage('NPM Install') {
-        withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
-            sh 'npm install'
-        }
-    }
+    
      stage('Test') {
         withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
           sh 'ng test --progress=false --watch false'
